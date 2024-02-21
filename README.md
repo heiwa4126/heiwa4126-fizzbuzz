@@ -44,7 +44,15 @@ heiwa4126_fizzbuzz/fizzbuzz.py
 # ユニットテスト実施
 python3 -m unittest
 
-# ローカルユーザにインストール
+# ビルド (先に pip3 install build が必要)
+python3 -m build
+
+# (pyproject.tomlの場合) ローカルユーザにインストール
+pip3 install --user -U dist/*.whl
+## or
+pip3 install --user -U dist/*.tar.gz
+
+# (setup.pyの場合) ローカルユーザにインストール
 pip3 install . --user -U
 
 # ローカルユーザからアンインストール
