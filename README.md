@@ -22,3 +22,29 @@ for item in fizzbuzz():
 ```
 
 このコードは、1 から始まり、"Fizz"、"Buzz"、または"FizzBuzz"を適切に出力します。
+
+## 開発関連
+
+※ Windows ではうまく動かないかも
+
+```sh
+# とりあえずサンプル実行
+heiwa4126_fizzbuzz/fizzbuzz.py
+
+# ユニットテスト実施
+python3 -m unittest
+
+# ローカルユーザにインストール
+pip3 install . --user -U
+
+# ローカルユーザからアンインストール
+pip3 uninstall heiwa4126_fizzbuzz
+```
+
+デフォルトでは
+
+- $HOME/.local/lib/python3.10/site-packages/heiwa4126_fizzbuzz-0.0.1.dist-info/
+- $HOME/.local/lib/python3.10/site-packages/heiwa4126_fizzbuzz/
+- $HOME/.local/lib/python3.10/site-packages/tests/
+
+のような場所にインストールされる。
