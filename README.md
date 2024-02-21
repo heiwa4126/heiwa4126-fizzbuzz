@@ -2,6 +2,8 @@
 
 この Python プロジェクトは、FizzBuzz のジェネレータを実装します。
 
+PyPI と GitHub Copilot の練習。
+
 ## インストール
 
 このパッケージは PyPI からインストールできます。次のコマンドを実行してください:
@@ -21,7 +23,15 @@ for item in fizzbuzz():
     print(item)
 ```
 
-このコードは、1 から始まり、"Fizz"、"Buzz"、または"FizzBuzz"を適切に出力します。
+このコードは、1 から始まり、"Fizz"、"Buzz"、または "FizzBuzz" を適切に出力します。
+
+## GitHub Copilot
+
+このコードのひな形は GitHub Copilot を使って以下のプロンプトで作りました。
+
+```console
+@workspace /new fizzbuzzを生成するpythonプロジェクト。pypiで配布可能なディレクトリ構成で、プロジェクト名はheiwa4126_fizzbuzz。fizzbuzzはジェネレータで実装。
+```
 
 ## 開発関連
 
