@@ -19,7 +19,7 @@ pip install heiwa4126-fizzbuzz
 ```python
 from heiwa4126_fizzbuzz import fizzbuzz
 
-for item in fizzbuzz():
+for item in fizzbuzz(15):
     print(item)
 ```
 
