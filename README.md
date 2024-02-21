@@ -66,3 +66,9 @@ pip3 uninstall heiwa4126_fizzbuzz
 - $HOME/.local/lib/python3.10/site-packages/tests/
 
 のような場所にインストールされる。
+
+## PyPI への登録
+
+1. [アカウントを作成する · PyPI](https://pypi.org/account/register/)
+
+(続く)
