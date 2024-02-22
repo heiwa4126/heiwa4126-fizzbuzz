@@ -36,7 +36,7 @@ for item in fizzbuzz(15):
 ## 開発関連
 
 - Windows ではうまく動かないかも。[Python Packaging User Guide のドキュメント読んでアレンジしてください](https://packaging.python.org/en/latest/tutorials/installing-packages/)。
-- `pip3` のとこは `python3 -m pip` でもいいです。
+- Linux や Mac では `pip3` のとこは `python3 -m pip` でもいいです。
 
 ```sh
 # とりあえずサンプル実行
