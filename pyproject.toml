@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 
 [project]
 name = "heiwa4126-fizzbuzz"
-version = "0.0.1"
+version = "0.0.2"
 description = "A simple fizzbuzz generator"
 readme = "README.md"
 authors = [{ name = "heiwa4126", email = "heiwa4126@gmail.com" }]
