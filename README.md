@@ -35,7 +35,7 @@ for item in fizzbuzz(15):
 
 ## 開発関連
 
-- Windows ではうまく動かないかも。[PyPI のドキュメント読んでアレンジしてください](https://packaging.python.org/en/latest/tutorials/installing-packages/)。
+- Windows ではうまく動かないかも。[Python Packaging User Guide のドキュメント読んでアレンジしてください](https://packaging.python.org/en/latest/tutorials/installing-packages/)。
 - `pip3` のとこは `python3 -m pip` でもいいです。
 
 ```sh
@@ -51,7 +51,7 @@ python3 -m build
 # ビルド & インストール
 pip3 install --user -U .
 ## または
-pip3 install --user -U -e .
+pip3 install --user -U -e . # 昔の `python setup.py develop` 相当
 
 # (pyproject.tomlの場合) ビルド後、ローカルユーザにインストール
 pip3 install --user -U dist/*.whl
