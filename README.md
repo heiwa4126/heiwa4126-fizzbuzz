@@ -35,7 +35,8 @@ for item in fizzbuzz(15):
 
 ## 開発関連
 
-※ Windows ではうまく動かないかも
+- Windows ではうまく動かないかも。[PyPI のドキュメント読んでアレンジしてください](https://packaging.python.org/en/latest/tutorials/installing-packages/)。
+- `pip3` のとこは `python3 -m pip` でもいいです。
 
 ```sh
 # とりあえずサンプル実行
@@ -47,15 +48,19 @@ python3 -m unittest
 # ビルド (先に pip3 install build が必要)
 python3 -m build
 
-# (pyproject.tomlの場合) ローカルユーザにインストール
+# ビルド & インストール
+pip3 install --user -U .
+## または
+pip3 install --user -U -e .
+
+# (pyproject.tomlの場合) ビルド後、ローカルユーザにインストール
 pip3 install --user -U dist/*.whl
-## or
+## または
 pip3 install --user -U dist/*.tar.gz
 
-# (setup.pyの場合) ローカルユーザにインストール
-pip3 install . --user -U
-
 # ローカルユーザからアンインストール
+pip3 uninstall heiwa4126-fizzbuzz
+## または
 pip3 uninstall heiwa4126_fizzbuzz
 ```
 
