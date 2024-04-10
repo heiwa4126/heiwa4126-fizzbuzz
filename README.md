@@ -17,7 +17,7 @@ pip install heiwa4126-fizzbuzz
 このパッケージは、FizzBuzz のジェネレータを提供します。以下のように使用できます:
 
 ```python
-from heiwa4126_fizzbuzz import fizzbuzz
+from heiwa4126.fizzbuzz import fizzbuzz
 
 for item in fizzbuzz(15):
     print(item)
