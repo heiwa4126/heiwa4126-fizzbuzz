@@ -73,3 +73,13 @@ def check(c):
 @task
 def fix(c):
     c.run("ruff check . --fix")
+
+
+@task
+def listwhl(c):
+    c.run("zipinfo dist/*.whl")
+
+
+@task
+def listtarball(c):
+    c.run("tar ztvf dist/*.tar.gz")
