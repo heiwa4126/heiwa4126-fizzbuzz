@@ -121,13 +121,13 @@ def release(c):
     # Increment the patch version
     new_version = Version(f"{current_version.major}.{current_version.minor}.{current_version.micro + 1}")
 
+    # Update the project version in pyproject.toml
+    config["project"]["version"] = str(new_version)
+    with open("pyproject.toml", "w") as f:
+        toml.dump(config, f)
+
     # Commit the version change
     c.run(f"git commit -m 'Bump version to {new_version}' pyproject.toml")
 
     # Tag the commit with the new version
     c.run(f"git tag {new_version}")
-
-    # Update the project version in pyproject.toml
-    config["project"]["version"] = str(new_version)
-    with open("pyproject.toml", "w") as f:
-        toml.dump(config, f)
