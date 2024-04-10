@@ -106,7 +106,7 @@ def testpypi(c):
 
 @task
 def release(c):
-    """Release the project"""
+    """Release the project. same as `npm version patch` in Node.js."""
     # Check if there are any uncommitted changes
     status = c.run("git status --porcelain", hide=True)
     if status.stdout:
@@ -131,3 +131,8 @@ def release(c):
 
     # Tag the commit with the new version
     c.run(f"git tag {new_version}")
+
+
+@task
+def push(c):
+    c.run("git push --follow-tags")
