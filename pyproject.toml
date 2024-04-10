@@ -7,18 +7,22 @@ package-dir = { "" = "src" }
 
 [project]
 name = "heiwa4126-fizzbuzz"
-version = "0.0.3"
+version = "0.0.4"
 description = "A simple fizzbuzz generator"
 readme = "README.md"
-authors = [{ name = "heiwa4126", email = "heiwa4126@gmail.com" }]
 license = { file = "LICENSE" }
+authors = [{ name = "heiwa4126" }, { email = "heiwa4126@gmail.com" }]
+keywords = ["fizzbuzz", "demo"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-urls = { homepage = "https://github.com/heiwa4126/heiwa4126-fizzbuzz" }
 requires-python = ">=3.6"
+
+[project.urls]
+Repository = "https://github.com/heiwa4126/heiwa4126-fizzbuzz.git"
+Homepage = "https://github.com/heiwa4126/heiwa4126-fizzbuzz#readme"
 
 [tool.ruff]
 target-version = "py39"
