@@ -3,7 +3,7 @@ import sys
 
 from invoke import task
 
-PYTHON = "python" if sys.platform == "win32" else "python3"
+PYTHON = "py" if sys.platform == "win32" else "python3"
 PIP = "pip" if sys.platform == "win32" else "pip3"
 
 SCOPE = "heiwa4126"
@@ -23,7 +23,7 @@ def setup(c):
 @task
 def example(c):
     """Run example code"""
-    c.run(f"{PYTHON} {SCOPE}/{PACKAGE}/fizzbuzz.py")
+    c.run(f"{PYTHON} src/{SCOPE}/{PACKAGE}/fizzbuzz.py")
 
 
 @task
