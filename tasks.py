@@ -3,8 +3,7 @@ import sys
 
 import toml
 from invoke import task
-from packaging.version import Version
-from packaging.version import parse
+from packaging.version import Version, parse
 
 PYTHON = "py" if sys.platform == "win32" else "python3"
 PIP = "pip" if sys.platform == "win32" else "pip3"
@@ -20,8 +19,6 @@ def setup(c):
     if not os.path.exists(".venv"):
         c.run(f"{PYTHON} -m venv .venv")
     c.run(".venv/bin/pip install -U -r requirements.txt")
-    c.run(".venv/bin/pip install -U -r requirements-dev.txt")
-    c.run(".venv/bin/pip install -U packaging")
     c.run(".venv/bin/pip install -U -r requirements-dev.txt")
 
 
@@ -100,11 +97,6 @@ def listtarball(c):
 
 
 @task
-def testpypi(c):
-    c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
-
-
-@task
 def release(c):
     """Release the project. same as `npm version patch` in Node.js."""
     # Check if there are any uncommitted changes
@@ -136,3 +128,9 @@ def release(c):
 @task
 def push(c):
     c.run("git push --follow-tags")
+
+
+@task
+def testpypi(c):
+    build(c)
+    c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
