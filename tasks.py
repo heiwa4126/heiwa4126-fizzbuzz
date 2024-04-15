@@ -25,7 +25,7 @@ def setup(c):
 @task
 def example(c):
     """Run example code"""
-    c.run(f"{PYTHON} src/{SCOPE}/{PACKAGE}/fizzbuzz.py")
+    c.run(f"{PYTHON} src/{SCOPE}/{PACKAGE}/cli.py 15")
 
 
 @task
