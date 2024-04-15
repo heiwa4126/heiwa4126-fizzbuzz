@@ -5,6 +5,9 @@ import toml
 from invoke import task
 from packaging.version import Version, parse
 
+os.environ["PYTHONPATH"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
+# ./src の下に置くのをやめれば、これは不要
+
 PYTHON = "py" if sys.platform == "win32" else "python3"
 PIP = "pip" if sys.platform == "win32" else "pip3"
 
@@ -25,18 +28,19 @@ def setup(c):
 @task
 def example(c):
     """Run example code"""
-    c.run(f"{PYTHON} src/{SCOPE}/{PACKAGE}/fizzbuzz.py")
+    # c.run(f"{PYTHON} src/{SCOPE}/{PACKAGE}/fizzbuzz.py")
+    c.run(f"{PYTHON} examples/ex0.py")
 
 
 @task
 def cli(c):
-    c.run(f"{PYTHON} -m src.{SCOPE}.{PACKAGE}.cli 15")
+    c.run(f"{PYTHON} -m {SCOPE}.{PACKAGE}.cli 15")
 
 
 @task
 def test(c):
     """Run unit tests"""
-    c.run(f"{PYTHON} -m unittest")
+    c.run(f"{PYTHON} -m unittest discover ./tests -p 'test_*.py'")
 
 
 @task
@@ -59,12 +63,6 @@ def install(c):
 def ex1(c):
     """if installed locally, you can run this command."""
     c.run(f"{PYTHON} examples/ex1.py")
-
-
-@task
-def ex2(c):
-    """if installed locally, you can run this command."""
-    c.run(f"{PYTHON} examples/ex2.py")
 
 
 @task
@@ -142,3 +140,9 @@ def push(c):
 def testpypi(c):
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
+
+
+@task
+def pypi(c):
+    build(c)
+    c.run(f"{PYTHON} -m twine upload --repository pypi dist/*")

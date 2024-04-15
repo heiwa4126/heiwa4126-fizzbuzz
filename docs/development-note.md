@@ -38,15 +38,19 @@ inv reinstall
 
 # Ruffによる自動修正
 inv fix
+
+## 他にもいろいろあるので tasks.py を見てください
 ```
 
 ここまでできたら
 
 ```sh
 git add --all
-git commit -am 'message'
-inv release  # `npm versin patch` みたいなもの
+git commit -am 'any messages'
+inv release  # build & `npm versin patch` みたいなもの
 ```
+
+で発行の準備完了
 
 ### PyPI への登録
 

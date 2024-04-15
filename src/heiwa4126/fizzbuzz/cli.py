@@ -3,8 +3,8 @@
 
 import sys
 
-from .fizzbuzz import fizzbuzz
-from .parse import parse_positive_integer
+from heiwa4126.fizzbuzz.fizzbuzz import fizzbuzz
+from heiwa4126.fizzbuzz.parse import parse_positive_integer
 
 
 def usage():
@@ -13,6 +13,20 @@ def usage():
 
 
 def main():
+    """
+    Entry point of the FizzBuzz program.
+
+    Reads a positive integer from the command line argument and prints the FizzBuzz sequence up to that number.
+
+    Usage:
+        python cli.py <end>
+
+    Args:
+        end (int): The end number of the FizzBuzz sequence.
+
+    Returns:
+        None
+    """
     if len(sys.argv) != 2:
         usage()
 
