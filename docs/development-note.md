@@ -15,11 +15,18 @@ pip install invoke -g
 git clone https://github.com/heiwa4126/heiwa4126-fizzbuzz.git
 cd heiwa4126-fizzbuzz
 
-# (オプション)./.venv に venv環境作成
+# (推奨)./.venv に venv環境作成
 inv setup
 
-# とりあえずサンプル実行
+# (オプション)とりあえずサンプル実行
 inv example
+```
+
+開発は
+
+```sh
+# ソースを ./srcの下にいろいろ書く
+# テストを ./testの下にいろいろ書く
 
 # ユニットテスト実施
 inv test
@@ -39,7 +46,8 @@ inv reinstall
 # Ruffによる自動修正
 inv fix
 
-## 他にもいろいろあるので tasks.py を見てください
+## inv xxx は他にもいろいろあるので tasks.py を見てください
+# くりかえす
 ```
 
 ここまでできたら
@@ -64,9 +72,9 @@ inv release  # build & `npm versin patch` みたいなもの
 ここまで出来たら
 
 ```sh
-rm -rf dist
-python3 -m build
 python3 -m twine upload --repository testpypi dist/*
+# or
+inv testpypi
 ```
 
 で アップロードすると

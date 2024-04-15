@@ -5,7 +5,7 @@ FizzBuzz のジェネレータ。このプロジェクトは PyPI と GitHub Cop
 ## インストール
 
 ```sh
-pip install heiwa4126-fizzbuzz
+pip install heiwa4126.fizzbuzz
 ```
 
 ## 使用方法

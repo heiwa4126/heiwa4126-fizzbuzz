@@ -56,6 +56,7 @@ def build(c):
 @task
 def install(c):
     """install locally"""
+    os.environ["PYTHONPATH"] = ""
     c.run(f"{PIP} install -U dist/*.whl")
 
 
@@ -67,6 +68,7 @@ def ex1(c):
 
 @task
 def uninstall(c):
+    os.environ["PYTHONPATH"] = ""
     c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
 
 
