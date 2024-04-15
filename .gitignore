@@ -275,3 +275,6 @@ tags
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,venv,visualstudiocode,emacs,vim
+
+tmp.*
+*.tmp

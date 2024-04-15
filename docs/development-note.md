@@ -47,7 +47,9 @@ inv reinstall
 inv fix
 
 ## inv xxx は他にもいろいろあるので tasks.py を見てください
-# くりかえす
+## または `inv -l`
+
+#-- 上記手順をくりかえす
 ```
 
 ここまでできたら
@@ -74,7 +76,7 @@ inv release  # build & `npm versin patch` みたいなもの
 ```sh
 python3 -m twine upload --repository testpypi dist/*
 # or
-inv testpypi
+inv upload_testpypi
 ```
 
 で アップロードすると
@@ -86,6 +88,9 @@ TestPyPI からインストールするには
 pip3 install -U --user -i https://test.pypi.org/simple/ heiwa4126-fizzbuzz
 ```
 
+オプション `-U` と `--user` はお好みで。
+
+次に
 上記と同じことを PyPI で行う。
 
 ## 古い開発メモ
@@ -163,3 +168,65 @@ pip3 install -U --user -i https://test.pypi.org/simple/ heiwa4126-fizzbuzz
 ```
 
 上記と同じことを PyPI で行う。
+
+## namespace 付き(風)の pip のモジュール名は heiwa4126.fizzbuzz と heiwa4126-fizzbuzz のどちらがいいですか?
+
+いろいろ調べたけど
+
+- Python でのパッケージ名はアンダースコアで
+- pip でのパッケージ名はハイフンで
+
+という「風習」しかないみたい。
+
+---
+
+Python のパッケージ名を規定しているのは、PEP 8 (Python Style Guide) です。
+
+PEP 8 には、Python のコーディングスタイルに関する様々な規約が定められています。
+その中の 1 つに、パッケージ名の命名規則が含まれています。
+
+具体的には、以下のようになっています。
+
+- パッケージ名は短くて、Python の単語にするのが理想的
+- パッケージ名は小文字で、単語の区切りには underscore を使う
+- パッケージ名の prefix (django* や app*)の使用は避ける
+
+つまり、推奨されるパッケージ名は例えば以下のようになります。
+
+```
+mypackage
+my_package
+```
+
+PEP 8 は Python コミュニティで広く支持され、
+Python のコーディングスタイルの事実上の標準となっているため、
+パッケージ名もこの規約に従うことが推奨されています。
+コードの読みやすさと一貫性を保つためです。
+
+---
+
+PIP のパッケージ名を規定している公式文書は PEP 508 です。
+
+PEP 508 は「Dependency specification for Python Software Packages」と題されており、
+Python パッケージの依存関係の指定方法について定めています。その中で、パッケージ名の命名規則も明記されています。
+
+PEP 508 によると、パッケージ名は以下の規則に従う必要があります。
+
+- ASCII 文字のみを使用し、大文字小文字を区別する
+- アンダースコア(\_)、ハイフン(-)、ピリオド(.)が使用可能
+- 先頭文字はアンダースコアまたは ASCII 文字
+- Python のキーワードは使用不可
+
+さらに、以下のようなベストプラクティスも推奨されています。
+
+- ハイフン(-)は OS 間の移植性のために避ける
+- ピリオド(.)は名前空間パッケージを表すために避ける
+- アンダースコア(\_)は内部的な意味を持つので避ける
+
+つまり、PIP のパッケージ名としては"simple-name"や"simple.name"よりも"simplename"のようなフラットな名前が推奨されているということになります。
+
+この PEP 508 の規則に従うことで、パッケージ名の曖昧さを避け、異なるパッケージ間で名前が衝突するリスクを低減できます。
+
+---
+
+今回は「名前空間パッケージ」なので heiwa4126.fizzbuzz にする。

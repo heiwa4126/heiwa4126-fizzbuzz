@@ -34,6 +34,7 @@ def example(c):
 
 @task
 def cli(c):
+    """Run cli.py code"""
     c.run(f"{PYTHON} -m {SCOPE}.{PACKAGE}.cli 15")
 
 
@@ -55,19 +56,20 @@ def build(c):
 
 @task
 def install(c):
-    """install locally"""
+    """Install package locally"""
     os.environ["PYTHONPATH"] = ""
     c.run(f"{PIP} install -U dist/*.whl")
 
 
 @task
 def ex1(c):
-    """if installed locally, you can run this command."""
+    """Run example 1"""
     c.run(f"{PYTHON} examples/ex1.py")
 
 
 @task
 def uninstall(c):
+    """Uninstalls package locally"""
     os.environ["PYTHONPATH"] = ""
     c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
 
@@ -139,12 +141,12 @@ def push(c):
 
 
 @task
-def testpypi(c):
+def upload_testpypi(c):
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
 
 
 @task
-def pypi(c):
+def upload_pypi(c):
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository pypi dist/*")

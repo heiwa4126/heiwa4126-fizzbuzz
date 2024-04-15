@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "setuptools",]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,9 +7,14 @@ name = "heiwa4126.fizzbuzz"
 version = "0.0.6"
 description = "A simple fizzbuzz generator"
 readme = "README.md"
-keywords = [ "fizzbuzz", "demo",]
-classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
+keywords = ["fizzbuzz", "demo"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 requires-python = ">=3.6"
+
 [[project.authors]]
 name = "heiwa4126"
 
@@ -31,10 +36,14 @@ target-version = "py39"
 line-length = 119
 
 [tool.ruff.lint]
-select = [ "E", "F", "W", "I", "Q",]
+select = ["E", "F", "W", "I", "Q"]
 
 [tool.setuptools.package-dir]
 "" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["heiwa4126.fizzbuzz"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "double"
