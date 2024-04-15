@@ -3,7 +3,7 @@
 
 import sys
 
-from heiwa4126.fizzbuzz.fizzbuzz import fizzbuzz
+from heiwa4126.fizzbuzz import fizzbuzz
 from heiwa4126.fizzbuzz.parse import parse_positive_integer
 
 
