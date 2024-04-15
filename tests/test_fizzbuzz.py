@@ -1,6 +1,10 @@
+import os
+import sys
 import unittest
 
-from heiwa4126_fizzbuzz.fizzbuzz import fizzbuzz
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
+from heiwa4126.fizzbuzz import fizzbuzz
 
 
 class TestFizzBuzz(unittest.TestCase):

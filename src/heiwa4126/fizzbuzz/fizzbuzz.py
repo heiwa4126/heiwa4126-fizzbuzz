@@ -4,6 +4,36 @@
 from typing import Generator
 
 
+def fizzbuzz_at(n: int) -> str:
+    """
+    Return the FizzBuzz value at a given number.
+
+    Args:
+        n (int): The number at which the FizzBuzz value should be returned.
+
+    Returns:
+        str: The FizzBuzz value at the given number.
+
+    Examples:
+        >>> fizzbuzz_at(1)
+        '1'
+        >>> fizzbuzz_at(3)
+        'Fizz'
+        >>> fizzbuzz_at(5)
+        'Buzz'
+        >>> fizzbuzz_at(15)
+        'FizzBuzz'
+    """
+    if n % 15 == 0:
+        return "FizzBuzz"
+    elif n % 3 == 0:
+        return "Fizz"
+    elif n % 5 == 0:
+        return "Buzz"
+    else:
+        return str(n)
+
+
 def fizzbuzz(n: int) -> Generator[str, None, None]:
     """
     Generate the FizzBuzz sequence up to a given number.
@@ -19,14 +49,7 @@ def fizzbuzz(n: int) -> Generator[str, None, None]:
         ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
     """
     for i in range(1, n + 1):
-        if i % 15 == 0:
-            yield "FizzBuzz"
-        elif i % 3 == 0:
-            yield "Fizz"
-        elif i % 5 == 0:
-            yield "Buzz"
-        else:
-            yield str(i)
+        yield fizzbuzz_at(i)
 
 
 if __name__ == "__main__":

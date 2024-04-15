@@ -46,16 +46,19 @@ def build(c):
 
 @task
 def install(c):
+    """install locally"""
     c.run(f"{PIP} install -U dist/*.whl")
 
 
 @task
 def ex1(c):
+    """if installed locally, you can run this command."""
     c.run(f"{PYTHON} examples/ex1.py")
 
 
 @task
 def ex2(c):
+    """if installed locally, you can run this command."""
     c.run(f"{PYTHON} examples/ex2.py")
 
 
