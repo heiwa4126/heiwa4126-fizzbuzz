@@ -1,6 +1,7 @@
 # heiwa4126.fizzbuzz
 
-Python 用の FizzBuzz ジェネレータパッケージ。
+`heiwa4126.fizzbuzz` は Python 用の FizzBuzz ジェネレータパッケージです。
+
 このプロジェクトは PyPI と GitHub Copilot の練習です。
 
 ## インストール
@@ -41,4 +42,4 @@ print("\n".join(fizzbuzz(15)))
 
 ## 開発メモ
 
-[煩雑な開発メモ](docs/development-note.md) は GitHub で見てね。
+[煩雑な開発メモは GitHub で](https://github.com/heiwa4126/heiwa4126-fizzbuzz/blob/main/docs/development-note.md) 見てね。
