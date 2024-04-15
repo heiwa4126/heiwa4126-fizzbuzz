@@ -19,18 +19,12 @@ from heiwa4126.fizzbuzz import fizzbuzz
 
 for item in fizzbuzz(15):
     print(item)
-```
 
-このコードは、1 から始まり、"Fizz"、"Buzz"、または "FizzBuzz" を適切に出力します。
-
-```python
-from heiwa4126.fizzbuzz import fizzbuzz
-
-for item in fizzbuzz(15):
-    print(item)
 # or
 print("\n".join(fizzbuzz(15)))
 ```
+
+このコードは、1 から始まり、"Fizz"、"Buzz"、または "FizzBuzz" を適切に出力します。
 
 ## GitHub Copilot
 

@@ -164,7 +164,7 @@ python3 -m twine upload --repository testpypi dist/*
 TestPyPI からインストールするには
 
 ```sh
-pip3 install -U --user -i https://test.pypi.org/simple/ heiwa4126-fizzbuzz
+pip3 install -U --user -i https://test.pypi.org/simple/ heiwa4126.fizzbuzz
 ```
 
 上記と同じことを PyPI で行う。

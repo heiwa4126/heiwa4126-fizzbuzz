@@ -141,12 +141,12 @@ def push(c):
 
 
 @task
-def upload_testpypi(c):
+def testpypi(c):
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
 
 
 @task
-def upload_pypi(c):
+def pypi(c):
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository pypi dist/*")
