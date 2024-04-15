@@ -3,9 +3,8 @@
 
 import sys
 
-from parse import parse_positive_integer
-
-from fizzbuzz import fizzbuzz
+from .fizzbuzz import fizzbuzz
+from .parse import parse_positive_integer
 
 
 def usage():
@@ -22,7 +21,7 @@ def main():
     if end is None:
         usage()
 
-    print(", ".join(fizzbuzz(end)))
+    print("\n".join(fizzbuzz(end)))
 
 
 if __name__ == "__main__":

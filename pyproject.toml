@@ -15,9 +15,8 @@ classifiers = [
 ]
 requires-python = ">=3.6"
 
-[project.entry_points]
-
-
+[project.scripts]
+"heiwa4126_fizzbuzz" = "heiwa4126.fizzbuzz.cli:main"
 
 [[project.authors]]
 name = "heiwa4126"
