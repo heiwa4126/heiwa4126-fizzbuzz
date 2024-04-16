@@ -1,6 +1,6 @@
 import unittest
 
-from heiwa4126.fizzbuzz import fizzbuzz
+from heiwa4126.fizzbuzz import fizzbuzz, fizzbuzz_at
 
 
 class TestFizzBuzz(unittest.TestCase):
@@ -80,6 +80,17 @@ class TestFizzBuzz(unittest.TestCase):
         """
         result = list(fizzbuzz(-10))
         self.assertEqual(result, [])
+
+    def test_fizzbuzz_at(self):
+        """
+        Test case for the fizzbuzz_at function.
+
+        The test case verifies that the fizzbuzz_at function returns the correct FizzBuzz value for a given number.
+        """
+        self.assertEqual(fizzbuzz_at(1), "1")
+        self.assertEqual(fizzbuzz_at(3), "Fizz")
+        self.assertEqual(fizzbuzz_at(5), "Buzz")
+        self.assertEqual(fizzbuzz_at(15), "FizzBuzz")
 
 
 if __name__ == "__main__":
