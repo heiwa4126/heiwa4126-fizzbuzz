@@ -23,8 +23,8 @@ heiwa4126_fizzbuzz = "heiwa4126.fizzbuzz.cli:main"
 file = "LICENSE"
 
 [project.urls]
-Repository = "https://github.com/heiwa4126/heiwa4126-fizzbuzz.git"
-Homepage = "https://github.com/heiwa4126/heiwa4126-fizzbuzz#readme"
+Repository = "https://github.com/heiwa4126/pip-heiwa4126-fizzbuzz.git"
+Homepage = "https://github.com/heiwa4126/pip-heiwa4126-fizzbuzz#readme"
 
 [tool.ruff]
 target-version = "py39"
