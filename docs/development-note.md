@@ -1,6 +1,18 @@
 # 煩雑な開発メモ
 
-## 開発関連
+## このパッケージはテンプレートです
+
+```sh
+YOUR_NAMESPACE="お好みの名前空間"
+YOUR_PACKAGE="お好みのパッケージ名"
+find . -type f | xargs perl -i.bak -pe "s/heiw4126/$YOUR_NAMESPACE/g;s/fizzbuzz/$YOUR_PACKAGE/g;"
+mv src/heiwa4126 "src/$YOUR_NAMESPACE"
+mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/$YOUR_PACKAGE"
+```
+
+のようにして置き換えて使ってください。
+
+## 開発手順
 
 タスクランナーに [invoke](https://pypi.org/project/invoke/) を使っています。事前に
 
@@ -25,8 +37,8 @@ inv example
 開発は
 
 ```sh
-# ソースを ./srcの下にいろいろ書く
-# テストを ./testの下にいろいろ書く
+# ソースを ./srcの下にいろいろ書いたり修正したり
+# テストを ./testの下にいろいろ書いたり修正したり
 
 # ユニットテスト実施
 inv test
