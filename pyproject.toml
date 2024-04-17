@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "setuptools",]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,9 +7,10 @@ name = "heiwa4126.fizzbuzz"
 version = "0.0.11"
 description = "A simple fizzbuzz generator"
 readme = "README.md"
-keywords = [ "fizzbuzz", "demo",]
-classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
+keywords = ["demo", "fizzbuzz"]
+classifiers = ["License :: OSI Approved :: MIT License", "Operating System :: OS Independent", "Programming Language :: Python :: 3"]
 requires-python = ">=3.6"
+dependencies = []
 [[project.authors]]
 name = "heiwa4126"
 
@@ -22,6 +23,9 @@ heiwa4126_fizzbuzz = "heiwa4126.fizzbuzz.cli:main"
 [project.license]
 file = "LICENSE"
 
+[project.optional-dependencies]
+dev = ["build", "invoke", "packaging", "ruff", "toml", "twine"]
+
 [project.urls]
 Repository = "https://github.com/heiwa4126/pip-heiwa4126-fizzbuzz.git"
 Homepage = "https://github.com/heiwa4126/pip-heiwa4126-fizzbuzz#readme"
@@ -31,7 +35,7 @@ target-version = "py39"
 line-length = 119
 
 [tool.ruff.lint]
-select = [ "E", "F", "W", "I", "Q",]
+select = ["E", "F", "I", "Q", "W"]
 
 [tool.setuptools.package-dir]
 "" = "src"
@@ -43,5 +47,5 @@ inline-quotes = "double"
 force-single-line = false
 
 [tool.setuptools.packages.find]
-where = [ "src/",]
-include = [ "heiwa4126.fizzbuzz",]
+where = ["src/"]
+include = ["heiwa4126.fizzbuzz"]

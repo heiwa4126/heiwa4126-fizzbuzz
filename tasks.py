@@ -1,15 +1,19 @@
 import os
 import sys
 
-import toml
 from invoke import task
-from packaging.version import Version, parse
 
 os.environ["PYTHONPATH"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
 # ./src の下に置くのをやめれば、これは不要
 
-PYTHON = "py" if sys.platform == "win32" else "python3"
-PIP = "pip" if sys.platform == "win32" else "pip3"
+PYTHON = "python3"
+PIP = "pip3"
+VENVPIP = ".venv/bin/pip"
+
+if sys.platform == "win32":
+    PYTHON = "python"
+    PIP = "pip"
+    VENVPIP = ".venv\\Scripts\\pip.exe"
 
 SCOPE = "heiwa4126"
 PACKAGE = "fizzbuzz"
@@ -21,8 +25,9 @@ def setup(c):
     """Setup virtual environment and install dependencies"""
     if not os.path.exists(".venv"):
         c.run(f"{PYTHON} -m venv .venv")
-    c.run(".venv/bin/pip install -U -r requirements.txt")
-    c.run(".venv/bin/pip install -U -r requirements-dev.txt")
+    c.run(f"{VENVPIP} install --use-pep517 -e .[dev] -U")
+    # c.run(f"{VENVPIP} install -U -r requirements.txt")
+    # c.run(f"{VENVPIP} install -U -r requirements-dev.txt")
 
 
 @task
@@ -41,24 +46,29 @@ def cli(c):
 @task
 def test(c):
     """Run unit tests"""
-    c.run(f"{PYTHON} -m unittest discover ./tests -p 'test_*.py'")
+    if sys.platform == "win32":
+        c.run(f'{PYTHON} -m unittest discover .\\tests -p "test_*.py"')
+    else:
+        c.run(f"{PYTHON} -m unittest discover ./tests -p 'test_*.py'")
 
 
 @task
 def build(c):
     """Build project"""
     if sys.platform == "win32":
-        c.run("del /S /Q dist\\*")
+        if os.path.exists("dist"):
+            c.run("del /S /Q dist\\")
     else:
         c.run("rm -rf dist/*")
     c.run(f"{PYTHON} -m build")
 
 
-@task
-def install(c):
-    """Install package locally"""
-    os.environ["PYTHONPATH"] = ""
-    c.run(f"{PIP} install -U dist/*.whl")
+
+# @task
+# def install(c):
+#     """Install package locally"""
+#     os.environ["PYTHONPATH"] = ""
+#     c.run(f"{PIP} install -U dist/*.whl")
 
 
 @task
@@ -67,19 +77,21 @@ def ex1(c):
     c.run(f"{PYTHON} examples/ex1.py")
 
 
-@task
-def uninstall(c):
-    """Uninstalls package locally"""
-    os.environ["PYTHONPATH"] = ""
-    c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
+# @task
+# def uninstall(c):
+#     """Uninstalls package locally"""
+#     os.environ["PYTHONPATH"] = ""
+#     c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
 
 
 @task
 def reinstall(c):
-    """uninstall, build and install"""
-    uninstall(c)
-    build(c)
-    install(c)
+    """re-link myself"""
+    c.run(f"{PIP} install --use-pep517 -e .")
+    # """uninstall, build and install"""
+    # uninstall(c)
+    # build(c)
+    # install(c)
 
 
 @task
@@ -114,6 +126,9 @@ def listtarball(c):
 @task
 def release(c):
     """Release the project. same as `npm version patch` in Node.js."""
+    import toml
+    from packaging.version import Version, parse
+
     # Check if there are any uncommitted changes
     status = c.run("git status --porcelain", hide=True)
     if status.stdout:
