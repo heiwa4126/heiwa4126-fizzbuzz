@@ -1,4 +1,4 @@
-# 煩雑な開発メモ
+# 開発メモ
 
 ## このパッケージはテンプレートです
 
@@ -11,16 +11,17 @@ mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/$YOUR_PACKAGE"
 ```
 
 のようにして置き換えて使ってください。
+(上のスクリプトは Windows では動きません)
 
 ## 開発手順
 
 タスクランナーに [invoke](https://pypi.org/project/invoke/) を使っています。事前に
 
 ```sh
-pip install invoke -g
+pip install invoke --user -U
 ```
 
-で invoke をインストールしてください。
+で invoke をインストールしておいてください。
 
 ```sh
 # このレポジトリをクローン
@@ -46,13 +47,15 @@ inv test
 # ビルド
 inv build
 
-# インストール
-inv install
+# パッケージの依存関係は
+# - 実行に必要なものは pyproject.tomlの project.dependencies に書く
+# - 開発に必要なものは pyproject.tomlの project.optional-dependencies の dev に書く
+# 書き方の例は
+# https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#declaring-required-dependency
+# にあります。
 
-# アンインストール
-inv uninstall
 
-# 再インストール (アンインストールしてビルドしてインストール)
+# メタデータ(pyproject.toml)を修正したとき、再リンク
 inv reinstall
 
 # Ruffによる自動修正
@@ -72,7 +75,7 @@ git commit -am 'any messages'
 inv release  # build & `npm versin patch` みたいなもの
 ```
 
-で発行の準備完了
+で発行の準備完了。
 
 ### PyPI への登録
 
@@ -103,7 +106,7 @@ pip3 install -U --user -i https://test.pypi.org/simple/ heiwa4126-fizzbuzz
 オプション `-U` と `--user` はお好みで。
 
 次に
-上記と同じことを PyPI で行う。
+上記と同じことを PyPI で行ってください。
 
 ## 古い開発メモ
 

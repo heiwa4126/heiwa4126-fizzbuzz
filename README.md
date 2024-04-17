@@ -38,4 +38,4 @@ print("\n".join(fizzbuzz(15)))
 
 ## 開発メモ
 
-[煩雑な開発メモは GitHub で](https://github.com/heiwa4126/pip-heiwa4126-fizzbuzz/blob/main/docs/development-note.md) 見てね。
+[開発メモは GitHub のほうで](./docs/development-note.md) 見てね。
