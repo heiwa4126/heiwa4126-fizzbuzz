@@ -31,6 +31,20 @@ cd heiwa4126-fizzbuzz
 # (推奨)./.venv に venv環境作成
 inv setup
 
+## Windows以外の場合以下のコマンドでvenvに入る
+. .venv/bin/activate
+## Windowsでcmd.exeの場合以下のコマンドでvenvに入る
+.venv\Scripts\activate.bat
+## WindowsでPowerShellの場合以下のコマンドでvenvに入る
+.venv\Scripts\activate.ps1
+
+## vscodeは、おおむね自動でプロジェクトディレクトリの.venv/を見つけてvenv環境に入る。
+## もし自動でうまくいかない場合は
+## 1. F1押す。
+## 2. Python: Select Interpreter とタイプしてリターン
+## 3. .venv/の下にあるPythonを選ぶ
+## 4. 用心のためいったんVScodeを終させる
+
 # (オプション)とりあえずサンプル実行
 inv example
 ```
