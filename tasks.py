@@ -4,7 +4,8 @@ import sys
 from invoke import task
 
 os.environ["PYTHONPATH"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
-# ./src の下に置くのをやめれば、これは不要
+## ./src の下に置くのをやめれば、これは不要
+## `pip install -e .` で linkにしたので、これは不要
 
 PYTHON = "python3"
 PIP = "pip3"
